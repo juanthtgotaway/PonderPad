@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const { clog } = require('./middleware/clog');
 const app = express();
+//defines the environment variable port or if one inst generated 3001 is used
 const PORT  = process.env.PORT || 3001; 
 
 //This imports the middleware 
@@ -21,4 +22,9 @@ app.get('*', (req, res) =>
 //get route for the notes page
 app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, './public/notes.html'))
+);
+
+//listens fo the port that will be generated back when ran 
+app.listen(PORT, () => 
+    console.log(`App listening at http://localhost:${PORT}`)
 );
