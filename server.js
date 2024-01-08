@@ -1,4 +1,4 @@
-//Global consts 
+//Global consts that import required modules and packages to run app
 const express = require('express');
 const path = require('path');
 const { clog } = require('./middleware/clog');
@@ -24,7 +24,7 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
-//listens fo the port that will be generated back when ran 
+//listens for the port that will be generated back when ran 
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
 );
