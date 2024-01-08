@@ -1,19 +1,19 @@
 //Middleware that logs out the type and path of each request to the server
-const clog = (req, res, next) => {
+const clog = (req, res) => {
     const clr= '\x1b[36m';
     switch (req.method) {
         case 'GET' : {
-            console.info(`📗 ${fgCyan}${req.method} request to ${req.path}`);
+            console.info(`📗 ${clr}${req.method} request to ${req.path}`);
             break;
         }
         case 'POST' : {
-            console.info(`📘 ${fgCyan}${req.method} request to ${req.path}`);
+            console.info(`📘 ${clr}${req.method} request to ${req.path}`);
             break;
         }
         default:
-            console.log(`📙 ${fgCyan}${req.method} request to ${req.path}`);
+            console.log(`📙 ${clr} ${req.method} request to ${req.path}`);
     }
-    next();
+
 };
 
 exports.clog = clog;
