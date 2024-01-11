@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const { clog } = require('./middleware/clog');
 const app = express();
+const api = require('./routes/index');
 //defines the environment variable port or if one inst generated 3001 is used
 const PORT  = process.env.PORT || 3001; 
 
@@ -28,3 +29,4 @@ app.get('/notes', (req, res) =>
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
 );
+
